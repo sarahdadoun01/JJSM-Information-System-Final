@@ -5,8 +5,9 @@ public class Users {
     private String name;
     private String password;
     private String username;
+    private String role;
 
-    public Users(int id, String name, String password, String username){
+    public Users(int id, String name, String password, String username, String role){
         this.id = id;
         this.name = name;
         this.username = username;
