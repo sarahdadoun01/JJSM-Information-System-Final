@@ -155,7 +155,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void forgotPassword(View v) {
-        Intent intent = new Intent(LoginActivity.this, ForgotPassword.class);
+        Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
         startActivity(intent);
     }
 
