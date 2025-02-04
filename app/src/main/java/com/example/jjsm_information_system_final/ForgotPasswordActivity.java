@@ -127,7 +127,43 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
     }
 
     private void findUser(View view) {
+        try {
+            // Gets UserId
+            String userId = etFPUserID.getText().toString().trim();
 
+            if (userId.isEmpty()) {
+                Snackbar.make(view, "User Id field must not be empty.", Snackbar.LENGTH_LONG).show();
+                return;
+            }
+
+            // Check if userId exist in firebase
+            userDB.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists()) {
+                        Snackbar.make(view, "Input ur new Password", Snackbar.LENGTH_LONG).show();
+
+                        // Change visibility of EditText, TextView, Button in order to change
+                        // password
+                        tvFPNewPassword.setVisibility(View.VISIBLE);
+                        tvFPPasswordConf.setVisibility(View.VISIBLE);
+                        etFPConfirmPass.setVisibility(View.VISIBLE);
+                        etFPNewPassword.setVisibility(View.VISIBLE);
+                        btnFPConfirm.setVisibility(View.VISIBLE);
+                    } else {
+                        Snackbar.make(view, "UserId does not exist", Snackbar.LENGTH_LONG).show();
+                    }
+                }
+
+                // Gives a message if there's a database error
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Snackbar.make(view, "Error : " + error.getMessage(), Snackbar.LENGTH_LONG).show();
+                }
+            });
+        } catch (Exception e) {
+            Snackbar.make(view, "Error : " + e.getMessage(), Snackbar.LENGTH_LONG).show();
+        }
     }
 
     private void goToLoginActivity(View view) {
