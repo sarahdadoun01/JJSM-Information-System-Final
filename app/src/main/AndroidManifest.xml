@@ -13,6 +13,45 @@
         android:theme="@style/Theme.JJSMInformationSystemFinal"
         tools:targetApi="31">
         <activity
+<<<<<<< Updated upstream
+=======
+            android:name=".ListOfSellersProductsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProductManagementActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListOfAllUsersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PurchaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WishlistActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListOfAllActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GuestHomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SellersMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AdminsMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SplashScreenActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BuyersMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+>>>>>>> Stashed changes
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
